@@ -22,13 +22,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     @Override
     public List<String> getSymptoms() throws IOException {
-        ArrayList<String> listSymptomsFromFilePath = new ArrayList<String>();
+        ArrayList<String> listSymptomsFromFilePath = new ArrayList<>();
 
         if (filepath != null) {
             try (FileReader fileReader = new FileReader(filepath);
                  BufferedReader reader = new BufferedReader(fileReader)) {
                 String line = reader.readLine();
-
+// est-il plus pertinant d'écrire String line; while( (line = reader.realine ) != null)
                 while (line != null) {
                     listSymptomsFromFilePath.add(line);
                     line = reader.readLine();
