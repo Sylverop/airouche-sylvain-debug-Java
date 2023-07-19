@@ -29,12 +29,15 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
      * @return A list of symptoms read from the file.
      */
     @Override
-    public List<String> getSymptoms()  {
+    public List<String> getSymptoms(){
+
         ArrayList<String> listSymptomsFromFilePath = new ArrayList<>();
 
         if (filepath != null) {
             try (FileReader fileReader = new FileReader(filepath);
+
                  BufferedReader reader = new BufferedReader(fileReader)) {
+
                 String line = reader.readLine();
 
                 while (line != null) {
@@ -43,7 +46,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("Error, file not found!");
-                e.printStackTrace();
             } catch (IOException e) {
                 System.out.println("File input/output error!");
                 e.printStackTrace();

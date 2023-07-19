@@ -15,7 +15,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
      * @param symptomWithOccurrences  A map containing the symptoms as keys and their occurrence count as values.
      * @param files                   The path to the file to write the data to.
      */
-    public void writeSymptoms(Map<String, Integer> symptomWithOccurrences, String files) {
+
+    public void writeSymptoms(Map<String, Integer> symptomWithOccurrences, String files)  {
         try (FileWriter fileWriter = new FileWriter(files)) {
             for (Map.Entry<String, Integer> occurrences : symptomWithOccurrences.entrySet()) {
                 fileWriter.write(occurrences.getKey() + " : " + occurrences.getValue() + ".\n");

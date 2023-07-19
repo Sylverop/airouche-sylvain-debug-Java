@@ -17,14 +17,13 @@ public class Main {
         ISymptomReader readerSymptomDataFromFile = new ReadSymptomDataFromFile("Project02Eclipse\\symptoms.txt");
 
         List<String> listSymptomsFromFilePath = readerSymptomDataFromFile.getSymptoms();
-        System.out.println(listSymptomsFromFilePath);
 
         ISymptomWriter writerSymptomDataToFile = new WriteSymptomDataToFile();
         IAnalyticsCounterAndSort analyticsCounterAndSort = new AnalyticsCounter();
 
-        Map<String, Integer> counterMap = analyticsCounterAndSort.countSymptoms(listSymptomsFromFilePath);
+        Map<String, Integer> countMap = analyticsCounterAndSort.countSymptoms(listSymptomsFromFilePath);
 
-        Map<String, Integer> sortMap =  analyticsCounterAndSort.sortSymptoms(counterMap);
+        Map<String, Integer> sortMap =  analyticsCounterAndSort.sortSymptoms(countMap);
 
         writerSymptomDataToFile.writeSymptoms(sortMap,"result.out");
     }
